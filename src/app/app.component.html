@@ -47,6 +47,25 @@
   </tbody>
 </table>
 
+<hr>
+<!-- stylisé avec bootstrap -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="departmentService.getDepartmentsList().length > 0; else emptyTr"></tr>
+    <tr *ngFor="let department of departmentService.getDepartmentsList()">
+      <td>{{ department.name }}</td>
+      <td>{{ department.code }}</td>
+    </tr>
+  </tbody>
+</table>
+
 <ng-template #emptyTr>
-  <td colspan="2">Aucune région</td>
+  <td colspan="2">Tableau vide</td>
 </ng-template>
+

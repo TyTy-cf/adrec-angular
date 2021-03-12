@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import {AbstractDepartment} from '../services/abstract-department';
+import {DepartmentService} from '../services/department.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatSortModule
   ],
   providers: [
-    // {provide: RegionInterface, useClass: RegionService},
+    {provide: AbstractDepartment, useClass: DepartmentService},
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Region} from '../models/region';
 import {RegionService} from '../services/region.service';
 import {MatTableDataSource} from '@angular/material/table';
+import {AbstractDepartment} from '../services/abstract-department';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,10 @@ export class AppComponent {
    * Passer en paramètre un "attribut" au constructeur,
    * Fait la même chose que de le déclarer en attribut de classe
    */
-  constructor(public regionService: RegionService) {
+  constructor(
+    public regionService: RegionService,
+    public departmentService: AbstractDepartment
+  ) {
     this.dataSource = new MatTableDataSource(regionService.getRegionsList());
   }
 
