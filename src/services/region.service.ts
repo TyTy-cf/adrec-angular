@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {RegionInterface} from './region-interface';
 import {Region} from '../models/region';
 

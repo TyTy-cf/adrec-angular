@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Region} from '../models/region';
 import {RegionService} from '../services/region.service';
 import {MatTableDataSource} from '@angular/material/table';
@@ -9,7 +9,7 @@ import {AbstractDepartment} from '../services/abstract-department';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'adrec';
   alphabet = [...Array(26)].map((q, w) => String.fromCharCode(w + 97));
   btnLabel = 'Change title';
@@ -29,7 +29,6 @@ export class AppComponent {
     public regionService: RegionService,
     public departmentService: AbstractDepartment
   ) {
-    this.dataSource = new MatTableDataSource(regionService.getRegionsList());
     this.compteur = 0;
     this.compteurCss = 'neutral';
   }
@@ -56,5 +55,9 @@ export class AppComponent {
   reset(): void {
     this.compteur = 0;
     this.compteurCss = 'neutral';
+  }
+
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(this.regionService.getRegionsList());
   }
 }
