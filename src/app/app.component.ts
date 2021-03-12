@@ -15,6 +15,8 @@ export class AppComponent {
   btnLabel = 'Change title';
   btnId = 'idBtnChangeTitle';
 
+  compteur: number;
+
   dataSource: MatTableDataSource<Region>;
   displayedColumns: string[] = ['name', 'code'];
 
@@ -27,9 +29,14 @@ export class AppComponent {
     public departmentService: AbstractDepartment
   ) {
     this.dataSource = new MatTableDataSource(regionService.getRegionsList());
+    this.compteur = 0;
   }
 
   changeTitle(): void {
     this.title = 'Super angular adrec';
+  }
+
+  changeCompteur(interval: number): void {
+    this.compteur += interval;
   }
 }

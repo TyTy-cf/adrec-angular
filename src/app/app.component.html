@@ -1,7 +1,15 @@
 
 <h1>{{ title|uppercase }}</h1>
 
-<p>Rory fait du vélo</p>
+
+<div class="row text-center">
+  <button class="btn btn-info" (click)="changeCompteur(-10);">--</button>
+  <button class="btn btn-info" (click)="changeCompteur(-1);">-</button>
+  <p>{{ compteur }}</p>
+  <button class="btn btn-info" (click)="changeCompteur(1);">+</button>
+  <button class="btn btn-info" (click)="changeCompteur(10);">++</button>
+</div>
+
 
 <ul>
   <li *ngFor="let alpha of alphabet">{{ alpha }}</li>
