@@ -15,10 +15,23 @@
 >
 </button>
 
-<!--<table mat-table [dataSource]="regions">-->
-<!--</table>-->
+<!-- stylisé avec material -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nom</th>
+    <td mat-cell *matCellDef="let region">{{ region.name }}</td>
+  </ng-container>
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef>Code</th>
+    <td mat-cell *matCellDef="let region">{{ region.code }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 
-<table>
+<hr>
+<!-- stylisé avec bootstrap -->
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nom</th>
@@ -26,8 +39,8 @@
     </tr>
   </thead>
   <tbody>
-      <tr *ngIf="regions.length > 0; else emptyTr"></tr>
-      <tr *ngFor="let region of regions">
+      <tr *ngIf="regionService.getRegionsList().length > 0; else emptyTr"></tr>
+      <tr *ngFor="let region of regionService.getRegionsList()">
         <td>{{ region.name }}</td>
         <td>{{ region.code }}</td>
       </tr>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Region} from '../models/region';
 import {RegionService} from '../services/region.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +13,16 @@ export class AppComponent {
   alphabet = [...Array(26)].map((q, w) => String.fromCharCode(w + 97));
   btnLabel = 'Change title';
   btnId = 'idBtnChangeTitle';
-  regions: Region[];
+
+  dataSource: MatTableDataSource<Region>;
+  displayedColumns: string[] = ['name', 'code'];
 
   /**
    * Passer en paramètre un "attribut" au constructeur,
    * Fait la même chose que de le déclarer en attribut de classe
    */
-  constructor(private regionService: RegionService) {
-    this.regions = regionService.getRegionsList();
+  constructor(public regionService: RegionService) {
+    this.dataSource = new MatTableDataSource(regionService.getRegionsList());
   }
 
   changeTitle(): void {
