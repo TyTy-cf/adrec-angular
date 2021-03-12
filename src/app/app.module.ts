@@ -17,7 +17,7 @@ import {DepartmentService} from '../services/department.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [
     {provide: AbstractDepartment, useClass: DepartmentService},

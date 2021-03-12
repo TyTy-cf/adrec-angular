@@ -1,0 +1,27 @@
+
+$color-red: darkred;
+$color-red-max: red;
+$color-green: forestgreen;
+$color-green-max: darkgreen;
+
+.negative {
+  color: wheat;
+  background-color: $color-red;
+  &-max {
+    background-color: $color-red-max;
+    color: yellow;
+  }
+}
+
+.positive {
+  background-color: $color-green;
+  color: wheat;
+  &-max {
+    background-color: $color-green-max;
+    color: wheat;
+  }
+}
+
+.neutral {
+  background-color: yellow;
+}
