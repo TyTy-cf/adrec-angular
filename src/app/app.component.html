@@ -1,11 +1,18 @@
 
-<h1>{{ title|uppercase }}</h1>
+<div class="container">
+  <div class="header">
+    <h1>{{ title|uppercase }}</h1>
+  </div>
+
+  <!-- Bien l'ajouter dans le component d'où vous utilisez les routes -->
+  <router-outlet></router-outlet>
+</div>
 
 <!--<ul>-->
 <!--  <li *ngFor="let alpha of alphabet">{{ alpha }}</li>-->
 <!--</ul>-->
 
-<app-counter></app-counter>
+<!--<app-counter></app-counter>-->
 
 <!-- On utilise les attributs "angular" via [id] pour définir la valeur de l'id depuis le TS -->
 <button
@@ -40,3 +47,7 @@
   </tr>
   </tbody>
 </table>
+
+<ng-template #emptyTr>
+  <td colspan="2">Tableau vide</td>
+</ng-template>
