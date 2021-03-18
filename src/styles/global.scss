@@ -8,3 +8,13 @@ body {
 .table-vertical {
   vertical-align: middle;
 }
+
+table {
+  .btn {
+    color: $primary;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
