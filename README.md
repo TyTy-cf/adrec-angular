@@ -35,6 +35,9 @@ Il inclura la partie du tableau des régions, mais celle qui est faite avec Mate
 
 6/ Ajouter un component permettant d'afficher le détail d'un department, ce qui permet d'afficher le codeRegion en plus
 
+7/ Ajouter un component region-show qui affiche les attributs de la région, ainsi que ses départements liés, s'il y en a
+Sinon, on affichera un template indiquant que la région n'a pas de départements qui lui sont liée
+
 
 
 
