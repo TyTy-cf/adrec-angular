@@ -15,9 +15,6 @@ export class AppComponent implements OnInit {
   btnLabel = 'Change title';
   btnId = 'idBtnChangeTitle';
 
-  compteur: number;
-  compteurCss: string;
-
   dataSource: MatTableDataSource<Region>;
   displayedColumns: string[] = ['name', 'code'];
 
@@ -29,32 +26,10 @@ export class AppComponent implements OnInit {
     public regionService: RegionService,
     public departmentService: AbstractDepartment
   ) {
-    this.compteur = 0;
-    this.compteurCss = 'neutral';
   }
 
   changeTitle(): void {
     this.title = 'Super angular adrec';
-  }
-
-  changeCompteur(interval: number): void {
-    this.compteur += interval;
-    if (this.compteur === 0) {
-      this.compteurCss = 'neutral';
-    } else if (this.compteur > 0 && this.compteur < 50) {
-      this.compteurCss = 'positive';
-    } else if (this.compteur > 50) {
-      this.compteurCss = 'positive-max';
-    } else if (this.compteur < 0 && this.compteur > -50) {
-      this.compteurCss = 'negative';
-    } else if (this.compteur < -50) {
-      this.compteurCss = 'negative-max';
-    }
-  }
-
-  reset(): void {
-    this.compteur = 0;
-    this.compteurCss = 'neutral';
   }
 
   ngOnInit(): void {

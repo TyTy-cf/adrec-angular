@@ -1,0 +1,9 @@
+
+<div class="row text-center">
+  <button class="btn btn-info" (click)="changeCompteur(-10);">--</button>
+  <button class="btn btn-info" (click)="changeCompteur(-1);">-</button>
+  <span [class]="compteurCss">{{ compteur }}</span>
+  <button class="btn btn-info" (click)="changeCompteur(1);">+</button>
+  <button class="btn btn-info" (click)="changeCompteur(10);">++</button>
+  <button class="btn btn-warning" (click)="reset();">Reset</button>
+</div>
