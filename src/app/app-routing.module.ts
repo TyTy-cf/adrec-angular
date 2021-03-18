@@ -7,8 +7,8 @@ import {RegionIndexMaterialsComponent} from './region-index-materials/region-ind
 
 const routes: Routes = [
   { path: 'counter', component: CounterComponent },
-  { path: 'department/index', component: DepartmentIndexComponent },
   { path: 'region/index', component: RegionIndexComponent },
+  { path: 'department/index', component: DepartmentIndexComponent },
   { path: 'region/index/materials', component: RegionIndexMaterialsComponent },
 ];
 
@@ -16,4 +16,11 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+  routes: Routes;
+
+  constructor() {
+    this.routes = routes;
+  }
+}

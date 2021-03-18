@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Routes} from '@angular/router';
+import {AppRoutingModule} from './app-routing.module';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +17,7 @@ export class AppComponent implements OnInit {
    * Passer en paramètre un "attribut" au constructeur,
    * Fait la même chose que de le déclarer en attribut de classe
    */
-  constructor() {
-  }
+  constructor(public routesModules: AppRoutingModule) { }
 
   changeTitle(): void {
     this.title = 'Super angular adrec';

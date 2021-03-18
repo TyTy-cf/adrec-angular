@@ -5,6 +5,7 @@
   <tr>
     <th>Nom</th>
     <th>Code</th>
+    <th>Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -12,6 +13,9 @@
   <tr *ngFor="let department of departmentService.getDepartmentsList()">
     <td>{{ department.name }}</td>
     <td>{{ department.code }}</td>
+    <td>
+      <a routerLink="#" class="btn btn-secondary">Voir</a>
+    </td>
   </tr>
   </tbody>
 </table>

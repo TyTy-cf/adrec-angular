@@ -18,7 +18,7 @@ import { DepartmentIndexComponent } from './department-index/department-index.co
     CounterComponent,
     RegionIndexMaterialsComponent,
     RegionIndexComponent,
-    DepartmentIndexComponent
+    DepartmentIndexComponent,
   ],
   imports: [
     BrowserModule,

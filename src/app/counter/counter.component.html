@@ -1,9 +1,11 @@
 
-<div class="row text-center">
-  <button class="btn btn-info" (click)="changeCompteur(-10);">--</button>
-  <button class="btn btn-info" (click)="changeCompteur(-1);">-</button>
-  <span [class]="compteurCss">{{ compteur }}</span>
-  <button class="btn btn-info" (click)="changeCompteur(1);">+</button>
-  <button class="btn btn-info" (click)="changeCompteur(10);">++</button>
-  <button class="btn btn-warning" (click)="reset();">Reset</button>
+<div class="text-center">
+  <div class="btn-group mx-auto">
+    <button class="btn btn-info" (click)="changeCompteur(-10);">--</button>
+    <button class="btn btn-info" (click)="changeCompteur(-1);">-</button>
+    <span class="px-3 d-flex align-items-center" [class]="compteurCss">{{ compteur }}</span>
+    <button class="btn btn-info" (click)="changeCompteur(1);">+</button>
+    <button class="btn btn-info" (click)="changeCompteur(10);">++</button>
+    <button class="btn btn-warning" (click)="reset();">Reset</button>
+  </div>
 </div>

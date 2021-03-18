@@ -6,8 +6,18 @@
   </div>
 
   <div class="container main-content">
-    <!-- Bien l'ajouter dans le component d'où vous utilisez les routes -->
-    <router-outlet></router-outlet>
+    <div class="btn-toolbar my-2" role="group">
+      <a *ngFor="let route of routesModules.routes" class="btn btn-primary me-2" routerLink="{{ route.path }}">{{ route.component.name }}</a>
+<!--      <a routerLink="counter" class="btn btn-primary me-2">Counter</a>-->
+<!--      <a routerLink="region/index" class="btn btn-primary me-2">Region</a>-->
+<!--      <a routerLink="department/index" class="btn btn-primary me-2">Department</a>-->
+<!--      <a routerLink="region/index/materials" class="btn btn-primary">Region (Materials)</a>-->
+    </div>
+
+    <div>
+      <!-- Bien l'ajouter dans le component d'où vous utilisez les routes -->
+      <router-outlet></router-outlet>
+    </div>
   </div>
 
   <div class="footer">
