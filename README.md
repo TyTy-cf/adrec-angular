@@ -33,4 +33,11 @@ Il inclura la partie du tableau des régions, mais celle qui est faite avec Mate
 - 'region/index' : RegionIndex
 - 'region/index/materials' : RegionIndexMaterials
 
+6/ Ajouter un component permettant d'afficher le détail d'une région, ce qui permet d'afficher le codeRegion en plus
+
+
+
+
+
+
 
