@@ -35,7 +35,11 @@ export class RegionService implements RegionInterface {
   }
 
   getRegion(code: string): Region {
-    return undefined;
+    const regions =  this.regions.filter(r => r.code === code);
+    if (!regions) {
+      throw new Error('The code region doesn\'t exist');
+    }
+    return regions[0];
   }
 
   getRegionsList(): Region[] {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractDepartment} from '../../services/abstract-department';
+import {DepartmentService} from '../../services/department.service';
 
 @Component({
   selector: 'app-department-index',
@@ -8,7 +8,7 @@ import {AbstractDepartment} from '../../services/abstract-department';
 })
 export class DepartmentIndexComponent implements OnInit {
 
-  constructor(public departmentService: AbstractDepartment) { }
+  constructor(public departmentService: DepartmentService) { }
 
   ngOnInit(): void {
   }

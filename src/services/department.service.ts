@@ -46,7 +46,11 @@ export class DepartmentService extends AbstractDepartment {
   }
 
   getDepartment(code: string): Department {
-    return undefined;
+    const departments =  this.departments.filter(d => d.code === code);
+    if (!departments) {
+      throw new Error('The code department doesn\'t exist');
+    }
+    return departments[0];
   }
 
   getDepartmentsList(): Department[] {
