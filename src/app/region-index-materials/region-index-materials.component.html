@@ -1,7 +1,8 @@
 
 <!-- stylisé avec material -->
 <h2>Index des régions affiché avec Materials</h2>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-w100">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Nom</th>
     <td mat-cell *matCellDef="let region">{{ region.name }}</td>
