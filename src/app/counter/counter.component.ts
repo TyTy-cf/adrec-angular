@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-comptor',
-  templateUrl: './comptor.component.html',
-  styleUrls: ['./comptor.component.scss']
+  selector: 'app-counter',
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.scss']
 })
-export class ComptorComponent implements OnInit {
+export class CounterComponent implements OnInit {
 
   compteur: number;
   compteurCss: string;

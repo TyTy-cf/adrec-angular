@@ -7,12 +7,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {AbstractDepartment} from '../services/abstract-department';
 import {DepartmentService} from '../services/department.service';
-import { ComptorComponent } from './comptor/comptor.component';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComptorComponent
+    CounterComponent
   ],
   imports: [
     BrowserModule,
