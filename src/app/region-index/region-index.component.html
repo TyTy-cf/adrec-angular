@@ -1,0 +1,21 @@
+
+<!-- stylisé avec bootstrap -->
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Code</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="regionService.getRegionsList().length > 0; else emptyTr"></tr>
+  <tr *ngFor="let region of regionService.getRegionsList()">
+    <td>{{ region.name }}</td>
+    <td>{{ region.code }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-template #emptyTr>
+  <td colspan="2">Tableau vide</td>
+</ng-template>

@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Region} from '../models/region';
-import {RegionService} from '../services/region.service';
-import {MatTableDataSource} from '@angular/material/table';
 import {AbstractDepartment} from '../services/abstract-department';
+import {RegionService} from '../services/region.service';
 
 @Component({
   selector: 'app-root',
@@ -15,17 +13,13 @@ export class AppComponent implements OnInit {
   btnLabel = 'Change title';
   btnId = 'idBtnChangeTitle';
 
-  dataSource: MatTableDataSource<Region>;
-  displayedColumns: string[] = ['name', 'code'];
-
   /**
    * Passer en paramètre un "attribut" au constructeur,
    * Fait la même chose que de le déclarer en attribut de classe
    */
   constructor(
     public regionService: RegionService,
-    public departmentService: AbstractDepartment
-  ) {
+    public departmentService: AbstractDepartment) {
   }
 
   changeTitle(): void {
@@ -33,6 +27,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.regionService.getRegionsList());
   }
 }
