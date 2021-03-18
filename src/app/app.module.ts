@@ -10,13 +10,15 @@ import {DepartmentService} from '../services/department.service';
 import { CounterComponent } from './counter/counter.component';
 import { RegionIndexMaterialsComponent } from './region-index-materials/region-index-materials.component';
 import { RegionIndexComponent } from './region-index/region-index.component';
+import { DepartmentIndexComponent } from './department-index/department-index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
     RegionIndexMaterialsComponent,
-    RegionIndexComponent
+    RegionIndexComponent,
+    DepartmentIndexComponent
   ],
   imports: [
     BrowserModule,

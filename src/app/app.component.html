@@ -1,53 +1,34 @@
 
-<div class="container">
+
+<div class="app-wrapper">
   <div class="header">
     <h1>{{ title|uppercase }}</h1>
   </div>
 
-  <!-- Bien l'ajouter dans le component d'où vous utilisez les routes -->
-  <router-outlet></router-outlet>
+  <div class="container main-content">
+    <!-- Bien l'ajouter dans le component d'où vous utilisez les routes -->
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="footer">
+    ADREC Formation - Angular
+  </div>
 </div>
 
 <!--<ul>-->
 <!--  <li *ngFor="let alpha of alphabet">{{ alpha }}</li>-->
 <!--</ul>-->
 
+<!-- On utilise un component exterieur qui sera appelé ici -->
 <!--<app-counter></app-counter>-->
 
 <!-- On utilise les attributs "angular" via [id] pour définir la valeur de l'id depuis le TS -->
-<button
-  *ngIf="title"
-  (click)="changeTitle();"
-  [textContent]="btnLabel"
-  [id]="btnId"
->
-</button>
+<!--<button-->
+<!--  *ngIf="title"-->
+<!--  (click)="changeTitle();"-->
+<!--  [textContent]="btnLabel"-->
+<!--  [id]="btnId"-->
+<!--&gt;-->
+<!--</button>-->
 
-<h2>Index des régions affiché avec Materials</h2>
-<app-region-index-materials></app-region-index-materials>
 
-<hr>
-
-<h2>Index des régions</h2>
-<app-region-index></app-region-index>
-
-<h2>Index des départements</h2>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>Nom</th>
-    <th>Code</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngIf="departmentService.getDepartmentsList().length > 0; else emptyTr"></tr>
-  <tr *ngFor="let department of departmentService.getDepartmentsList()">
-    <td>{{ department.name }}</td>
-    <td>{{ department.code }}</td>
-  </tr>
-  </tbody>
-</table>
-
-<ng-template #emptyTr>
-  <td colspan="2">Tableau vide</td>
-</ng-template>

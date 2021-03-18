@@ -1,10 +1,33 @@
 
-$header-color: #cfcfcf;
+$header-color: darken(#cfcfcf, 30%);
+$header-font-color: #ffffff;
+$footer-color: darken(#cfcfcf, 40%);
+$footer-font-color: #ffffff;
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .header {
   background-color: $header-color;
+  color: $header-font-color;
   min-height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.footer {
+  background-color: $footer-color;
+  color: $footer-font-color;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  flex-grow: 1;
 }
