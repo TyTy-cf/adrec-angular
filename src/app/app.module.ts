@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { RegionIndexMaterialsComponent } from './region-index-materials/region-index-materials.component';
 import { RegionIndexComponent } from './region-index/region-index.component';
 import { DepartmentIndexComponent } from './department-index/department-index.component';
+import { DepartmentShowComponent } from './department-show/department-show.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DepartmentIndexComponent } from './department-index/department-index.co
     RegionIndexMaterialsComponent,
     RegionIndexComponent,
     DepartmentIndexComponent,
+    DepartmentShowComponent,
   ],
   imports: [
     BrowserModule,

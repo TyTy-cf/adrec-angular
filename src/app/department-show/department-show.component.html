@@ -1,0 +1,25 @@
+
+<div *ngIf="department; else emptyDepartment">
+  <h3><strong>{{ department.name|uppercase }}</strong></h3>
+  <table class="table table-striped w-25">
+    <tbody>
+      <tr>
+        <th>Code</th>
+        <td>
+          {{ department.code }}
+        </td>
+      </tr>
+      <tr>
+        <th>Code Region</th>
+        <td>
+          {{ department.codeRegion }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/department/index" class="btn btn-warning">Retour aux départements</a>
+</div>
+
+<ng-template #emptyDepartment>
+  <p>Aucun départment sélectionné</p>
+</ng-template>
