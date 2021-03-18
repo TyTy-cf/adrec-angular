@@ -26,10 +26,11 @@ Il inclura la partie du tableau des régions, mais celle qui est faite avec Mate
 -- Suite
 4/ Epurer le app.component.html afin qu'il n'ai que le router-outlet et le header
 
-5/ Créer un component pour les départements
+5/ Créer un component pour les départements : department-index
 
 5/ Ajouter une route par component :
-- 'departments' : DepartmentsComponent
-- 'regions/index' : RegionIndex
-- 'regions/index/materials' : RegionIndexMaterials
+- 'department' : DepartmentComponent
+- 'region/index' : RegionIndex
+- 'region/index/materials' : RegionIndexMaterials
+
 
