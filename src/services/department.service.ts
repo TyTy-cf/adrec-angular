@@ -56,5 +56,19 @@ export class DepartmentService extends AbstractDepartment {
   getDepartmentsList(): Department[] {
     return this.departments;
   }
+
+  getDepartmentsListByCodeRegion(codeRegion: string): Department[] {
+    // Equivalent du filter :
+    // for (const d of this.getDepartmentsList()) {
+    //   if (d.codeRegion === codeRegion) {
+    //     // traitement
+    //   }
+    // }
+    const departments =  this.departments.filter(d => d.codeRegion === codeRegion);
+    if (!departments) {
+      throw new Error('The codeRegion has no department linked');
+    }
+    return departments;
+  }
 }
 

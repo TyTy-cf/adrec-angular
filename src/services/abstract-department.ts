@@ -2,6 +2,7 @@ import {Department} from '../models/department';
 
 export abstract class AbstractDepartment {
   abstract getDepartmentsList(): Department[];
+  abstract getDepartmentsListByCodeRegion(codeRegion: string): Department[];
   abstract getDepartment(code: string): Department;
   abstract addDepartment(department: Department): void;
   abstract deleteDepartment(code: string): Department[];

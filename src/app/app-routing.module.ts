@@ -5,10 +5,12 @@ import {DepartmentIndexComponent} from './department-index/department-index.comp
 import {RegionIndexComponent} from './region-index/region-index.component';
 import {RegionIndexMaterialsComponent} from './region-index-materials/region-index-materials.component';
 import {DepartmentShowComponent} from './department-show/department-show.component';
+import {RegionShowComponent} from './region-show/region-show.component';
 
 const routes: Routes = [
   { path: 'counter', component: CounterComponent },
   { path: 'region/index', component: RegionIndexComponent },
+  { path: 'region/show/:code', component: RegionShowComponent },
   { path: 'department/index', component: DepartmentIndexComponent },
   { path: 'department/show/:code', component: DepartmentShowComponent },
   { path: 'region/index/materials', component: RegionIndexMaterialsComponent },
@@ -18,11 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-  routes: Routes;
-
-  constructor() {
-    this.routes = routes;
-  }
-}
+export class AppRoutingModule { }

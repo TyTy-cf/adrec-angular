@@ -1,7 +1,7 @@
 
 <div *ngIf="department; else emptyDepartment">
-  <h3><strong>{{ department.name|uppercase }}</strong></h3>
-  <table class="table table-striped w-25">
+  <h2>{{ department.name|uppercase }}</h2>
+  <table class="table table-striped w-25 table-vertical">
     <tbody>
       <tr>
         <th>Code</th>
@@ -12,7 +12,7 @@
       <tr>
         <th>Region</th>
         <td>
-          {{ region.name }}
+          <a routerLink="/region/show/{{ region.code }}" class="btn">{{ region.name }}</a>
         </td>
       </tr>
     </tbody>
@@ -21,5 +21,5 @@
 </div>
 
 <ng-template #emptyDepartment>
-  <p>Aucun départment sélectionné</p>
+  <p>Aucun département sélectionné</p>
 </ng-template>

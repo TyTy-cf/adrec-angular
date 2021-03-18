@@ -1,21 +1,28 @@
 
 <!-- stylisé avec bootstrap -->
 <h2>Index des régions</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Code</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngIf="regionService.getRegionsList().length > 0; else emptyTr"></tr>
-    <tr *ngFor="let region of regionService.getRegionsList()">
-      <td>{{ region.name }}</td>
-      <td>{{ region.code }}</td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="col-sm-6">
+  <table class="table table-striped table-vertical">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+        <th>Nb Departements</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="regionService.getRegionsList().length > 0; else emptyTr"></tr>
+      <tr *ngFor="let region of regionService.getRegionsList()">
+        <td>
+          <a routerLink="/region/show/{{ region.code }}" class="btn">{{ region.name }}</a>
+        </td>
+        <td>{{ region.code }}</td>
+        <td>{{ departmentService.getDepartmentsListByCodeRegion(region.code).length }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <ng-template #emptyTr>
   <td colspan="2">Tableau vide</td>

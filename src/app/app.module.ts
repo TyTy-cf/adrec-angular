@@ -12,6 +12,7 @@ import { RegionIndexMaterialsComponent } from './region-index-materials/region-i
 import { RegionIndexComponent } from './region-index/region-index.component';
 import { DepartmentIndexComponent } from './department-index/department-index.component';
 import { DepartmentShowComponent } from './department-show/department-show.component';
+import { RegionShowComponent } from './region-show/region-show.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DepartmentShowComponent } from './department-show/department-show.compo
     RegionIndexComponent,
     DepartmentIndexComponent,
     DepartmentShowComponent,
+    RegionShowComponent,
   ],
   imports: [
     BrowserModule,

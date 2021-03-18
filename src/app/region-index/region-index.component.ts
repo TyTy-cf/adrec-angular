@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegionService} from '../../services/region.service';
+import {DepartmentService} from '../../services/department.service';
 
 @Component({
   selector: 'app-region-index',
@@ -8,7 +9,10 @@ import {RegionService} from '../../services/region.service';
 })
 export class RegionIndexComponent implements OnInit {
 
-  constructor(public regionService: RegionService) { }
+  constructor(
+    public regionService: RegionService,
+    public departmentService: DepartmentService
+  ) { }
 
   ngOnInit(): void {
   }

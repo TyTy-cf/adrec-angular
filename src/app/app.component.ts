@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Routes} from '@angular/router';
-import {AppRoutingModule} from './app-routing.module';
+
+interface RoutesTitle {
+  path: string;
+  title: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -13,16 +16,25 @@ export class AppComponent implements OnInit {
   btnLabel = 'Change title';
   btnId = 'idBtnChangeTitle';
 
+  // RoutesTitle équivaut à la même chose que : {path: string, title: string}
+  routesMenu: RoutesTitle[];
+
   /**
    * Passer en paramètre un "attribut" au constructeur,
    * Fait la même chose que de le déclarer en attribut de classe
    */
-  constructor(public routesModules: AppRoutingModule) { }
+  constructor() {
+    this.routesMenu = new Array<RoutesTitle>();
+  }
 
   changeTitle(): void {
     this.title = 'Super angular adrec';
   }
 
   ngOnInit(): void {
+    this.routesMenu.push({path: 'region/index', title: 'Region Index'});
+    // this.routesMenu.push({path: 'region/show/:code', title: 'Region Show'});
+    this.routesMenu.push({path: 'department/index', title: 'Department Index'});
+    // this.routesMenu.push({path: 'department/show/:code', title: 'Department Show'});
   }
 }

@@ -7,7 +7,7 @@
 
   <div class="container main-content">
     <div class="btn-toolbar my-2" role="group">
-      <a *ngFor="let route of routesModules.routes" class="btn btn-primary me-2" routerLink="{{ route.path }}">{{ route.component.name }}</a>
+      <a *ngFor="let route of routesMenu" class="btn btn-primary me-2" routerLink="{{ route.path }}">{{ route.title }}</a>
 <!--      <a routerLink="counter" class="btn btn-primary me-2">Counter</a>-->
 <!--      <a routerLink="region/index" class="btn btn-primary me-2">Region</a>-->
 <!--      <a routerLink="department/index" class="btn btn-primary me-2">Department</a>-->
