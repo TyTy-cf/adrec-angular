@@ -27,8 +27,9 @@ export class RegionService implements RegionInterface {
     this.regions.push(region);
   }
 
-  deleteRegion(code: string): Region[] {
-    return [];
+  deleteRegion(region: Region): Region[] {
+    this.regions = this.regions.filter(r => r.code !== region.code || r.name !== region.name);
+    return this.regions;
   }
 
   editRegion(code: string): Region {

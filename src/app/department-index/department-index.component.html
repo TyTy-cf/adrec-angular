@@ -7,6 +7,7 @@
       <tr>
         <th>Nom</th>
         <th>Code</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,11 @@
           <a routerLink="/department/show/{{ department.code }}" class="btn">{{ department.name }}</a>
         </td>
         <td>{{ department.code }}</td>
+        <td>
+          <button class="btn">
+            <fa-icon class="btn" [icon]="faPencilAlt"></fa-icon>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

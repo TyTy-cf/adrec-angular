@@ -9,20 +9,26 @@
         <th>Nom</th>
         <th>Code</th>
         <th>Nb Departements</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="regionService.getRegionsList().length > 0; else emptyTr"></tr>
-      <tr *ngFor="let region of regionService.getRegionsList()">
+      <tr *ngFor="let region of regions">
         <td>
           <a routerLink="/region/show/{{ region.code }}" class="btn">{{ region.name }}</a>
         </td>
         <td>{{ region.code }}</td>
         <td>{{ departmentService.getDepartmentsListByCodeRegion(region.code).length }}</td>
+        <td>
+          <button class="btn" (click)="onEditRegion(region);">
+            <fa-icon class="btn" [icon]="faPencilAlt"></fa-icon>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
-  <app-region-form></app-region-form>
+  <app-region-form [region]="selectedRegion" (refreshList)="updateRegionList($event)"></app-region-form>
 </div>
 
 <ng-template #emptyTr>
