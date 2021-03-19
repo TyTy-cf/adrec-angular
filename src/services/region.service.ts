@@ -24,6 +24,7 @@ export class RegionService implements RegionInterface {
   }
 
   addRegion(region: Region): void {
+    this.regions.push(region);
   }
 
   deleteRegion(code: string): Region[] {

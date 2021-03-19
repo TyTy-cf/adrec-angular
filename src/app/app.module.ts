@@ -13,6 +13,9 @@ import { RegionIndexComponent } from './region-index/region-index.component';
 import { DepartmentIndexComponent } from './department-index/department-index.component';
 import { DepartmentShowComponent } from './department-show/department-show.component';
 import { RegionShowComponent } from './region-show/region-show.component';
+import { RegionFormComponent } from './region-form/region-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { RegionShowComponent } from './region-show/region-show.component';
     DepartmentIndexComponent,
     DepartmentShowComponent,
     RegionShowComponent,
+    RegionFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,8 @@ import { RegionShowComponent } from './region-show/region-show.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatSortModule,
+    FontAwesomeModule,
+    FormsModule,
   ],
   providers: [
     {provide: AbstractDepartment, useClass: DepartmentService},

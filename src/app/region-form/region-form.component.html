@@ -1,0 +1,20 @@
+
+<form (ngSubmit)="infoAdd();" #regionAddForm="ngForm">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <input placeholder="Nom" class="form-control" type="text" name="name" [(ngModel)]="region.name">
+        </td>
+        <td>
+          <input placeholder="Code" class="form-control" type="text" name="code" [(ngModel)]="region.code">
+        </td>
+        <td>
+          <button (click)="addRegion(); regionAddForm.reset()" class="btn">
+            <fa-icon class="green-icon" [icon]="faPlusCircle"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
