@@ -15,7 +15,7 @@ import { DepartmentShowComponent } from './department-show/department-show.compo
 import { RegionShowComponent } from './region-show/region-show.component';
 import { RegionFormComponent } from './region-form/region-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import {FormsModule} from '@angular/forms';
     MatSortModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {provide: AbstractDepartment, useClass: DepartmentService},

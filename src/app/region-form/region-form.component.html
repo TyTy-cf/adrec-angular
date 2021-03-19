@@ -1,18 +1,33 @@
 
-<form (ngSubmit)="infoAdd();" #regionAddForm="ngForm">
+<form [formGroup]="regionForm" #regionFormForm="ngForm">
   <table class="table">
     <tbody>
       <tr>
         <td>
-          <input placeholder="Nom" class="form-control" type="text" name="name"
-                 [(ngModel)]="region.name" #name="ngModel" required
+          <input [class.is-invalid]="name.invalid && name.touched"
+                 placeholder="Nom" class="form-control" type="text" name="name" formControlName="name" required
           >
+          <div *ngIf="name.invalid && name.touched" class="invalid-feedback">
+            <div *ngIf="name.errors.required">
+              Name is required.
+            </div>
+          </div>
         </td>
         <td>
-          <input placeholder="Code" class="form-control" type="text" name="code" [(ngModel)]="region.code">
+          <input [class.is-invalid]="code.invalid && code.touched"
+                 placeholder="Code" class="form-control" type="text" name="code" formControlName="code" required>
+          <div *ngIf="code.invalid && code.touched" class="invalid-feedback"
+          >
+            <div *ngIf="code.errors.required">
+              Code is required.
+            </div>
+            <div *ngIf="code.errors.pattern">
+              Code doesn't match pattern required
+            </div>
+          </div>
         </td>
         <td>
-          <button (click)="addRegion(); regionAddForm.reset()" class="btn" type="submit">
+          <button class="btn" (click)="addRegion(); regionFormForm.reset()" [disabled]="!regionFormForm.valid">
             <fa-icon class="green-icon" [icon]="faPlusCircle"></fa-icon>
           </button>
         </td>
@@ -21,8 +36,4 @@
   </table>
 </form>
 
-<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-  <div *ngIf="name.errors.required">
-    Name is required.
-  </div>
-</div>
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Region} from '../../models/region';
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import {RegionService} from '../../services/region.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-region-form',
@@ -10,21 +10,38 @@ import {RegionService} from '../../services/region.service';
 })
 export class RegionFormComponent implements OnInit {
 
-  region: Region;
+  regionForm: FormGroup;
   public faPlusCircle = faPlusCircle;
 
-  constructor(public regionService: RegionService) {
-    this.region = new Region();
-  }
+  constructor(public regionService: RegionService) { }
 
   ngOnInit(): void {
+    this.regionForm = new FormGroup(
+      {
+        name: new FormControl(
+          '', [
+            Validators.required,
+          ]
+        ),
+        code: new FormControl(
+          '', [
+            Validators.required,
+            Validators.pattern('^[0-9]{2}$')
+          ]
+        )
+      }
+    );
   }
 
-  infoAdd(): void {
+  get name(): any {
+    return this.regionForm.get('name');
+  }
+
+  get code(): any {
+    return this.regionForm.get('code');
   }
 
   addRegion(): void {
-    this.regionService.addRegion(this.region);
-    this.region = new Region();
+    this.regionService.addRegion(this.regionForm.value);
   }
 }
