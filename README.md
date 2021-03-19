@@ -38,7 +38,10 @@ Il inclura la partie du tableau des régions, mais celle qui est faite avec Mate
 7/ Ajouter un component region-show qui affiche les attributs de la région, ainsi que ses départements liés, s'il y en a
 Sinon, on affichera un template indiquant que la région n'a pas de départements qui lui sont liée
 
+8/ Ajouter le form pour le département (name, code, codeRegion)
+codeRegion sera un select qui se basera sur le code des régions existantes
 
+On l'affichera de la même manière que celui du département
 
 
 

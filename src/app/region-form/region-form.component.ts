@@ -21,7 +21,6 @@ export class RegionFormComponent implements OnInit {
   }
 
   infoAdd(): void {
-    alert('Region bien ajoutée !');
   }
 
   addRegion(): void {

@@ -4,13 +4,15 @@
     <tbody>
       <tr>
         <td>
-          <input placeholder="Nom" class="form-control" type="text" name="name" [(ngModel)]="region.name">
+          <input placeholder="Nom" class="form-control" type="text" name="name"
+                 [(ngModel)]="region.name" #name="ngModel" required
+          >
         </td>
         <td>
           <input placeholder="Code" class="form-control" type="text" name="code" [(ngModel)]="region.code">
         </td>
         <td>
-          <button (click)="addRegion(); regionAddForm.reset()" class="btn">
+          <button (click)="addRegion(); regionAddForm.reset()" class="btn" type="submit">
             <fa-icon class="green-icon" [icon]="faPlusCircle"></fa-icon>
           </button>
         </td>
@@ -18,3 +20,9 @@
     </tbody>
   </table>
 </form>
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+  <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+</div>
