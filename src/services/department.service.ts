@@ -35,6 +35,7 @@ export class DepartmentService extends AbstractDepartment {
   }
 
   addDepartment(department: Department): void {
+    this.departments.push(department);
   }
 
   deleteDepartment(code: string): Department[] {

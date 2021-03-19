@@ -16,8 +16,7 @@
         <td>
           <input [class.is-invalid]="code.invalid && code.touched"
                  placeholder="Code" class="form-control" type="text" name="code" formControlName="code" required>
-          <div *ngIf="code.invalid && code.touched" class="invalid-feedback"
-          >
+          <div *ngIf="code.invalid && code.touched" class="invalid-feedback">
             <div *ngIf="code.errors.required">
               Code is required.
             </div>

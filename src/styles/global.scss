@@ -18,3 +18,10 @@ table {
     }
   }
 }
+
+.green-icon {
+  color: green;
+  &:hover {
+    color: darkgreen;
+  }
+}

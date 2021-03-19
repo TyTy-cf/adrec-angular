@@ -16,6 +16,7 @@ import { RegionShowComponent } from './region-show/region-show.component';
 import { RegionFormComponent } from './region-form/region-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DepartmentFormComponent } from './department-form/department-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DepartmentShowComponent,
     RegionShowComponent,
     RegionFormComponent,
+    DepartmentFormComponent,
   ],
   imports: [
     BrowserModule,
