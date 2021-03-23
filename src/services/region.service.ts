@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {RegionInterface} from './region-interface';
 import {Region} from '../models/region';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +11,9 @@ import {Region} from '../models/region';
 export class RegionService implements RegionInterface {
 
   regions: Region[];
+  url = 'https://geo.api.gouv.fr/regions';
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.regions = new Array<Region>();
     const auvergne = new Region();
     // équivalent à $this->region.setCode('63')
@@ -42,6 +46,10 @@ export class RegionService implements RegionInterface {
       throw new Error('The code region doesn\'t exist');
     }
     return regions[0];
+  }
+
+  getRegionsListObservable(): Observable<Region[]> {
+    return this.http.get<Region[]>(this.url);
   }
 
   getRegionsList(): Region[] {
