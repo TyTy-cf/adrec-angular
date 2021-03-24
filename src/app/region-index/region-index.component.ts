@@ -35,7 +35,9 @@ export class RegionIndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.regionService.getRegionObservable().subscribe(regions => this.regionsObs = regions);
+    this.regionService.getRegionObservable()
+      .subscribe(regions => this.regionsObs = regions)
+    ;
     alert(this.regionsObs.length);
   }
 
