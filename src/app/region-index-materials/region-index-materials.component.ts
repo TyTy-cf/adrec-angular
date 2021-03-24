@@ -19,7 +19,7 @@ export class RegionIndexMaterialsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.regionService.regionsTmp);
+    // this.dataSource = new MatTableDataSource(this.regionService.regionsTmp);
   }
 
 }

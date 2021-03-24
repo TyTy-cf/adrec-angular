@@ -4,6 +4,7 @@ import {DepartmentService} from '../../services/department.service';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons';
 import {GuidRegion, Region} from '../../models/region';
 import {Guid} from 'guid-typescript';
+import {RegionApi} from '../../models/region-api';
 
 @Component({
   selector: 'app-region-index',
@@ -16,7 +17,7 @@ export class RegionIndexComponent implements OnInit {
 
   selectedGuid: Guid;
   regions: GuidRegion[];
-  regionsObs: Region[];
+  regionsApi: RegionApi[];
 
 
   constructor(
@@ -24,7 +25,6 @@ export class RegionIndexComponent implements OnInit {
     public departmentService: DepartmentService
   ) {
     this.regions = regionService.getRegionsList();
-    this.regionsObs = new Array<Region>();
   }
 
   updateRegionList(hasToRefresh: boolean): void {
@@ -35,13 +35,15 @@ export class RegionIndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.regionService.getRegionObservable()
-      .subscribe(regions => this.regionsObs = regions)
-    ;
+    this.getRegionsFromApi();
   }
 
   onEditRegion(guid: Guid): void {
     this.selectedGuid = guid;
   }
 
+  private getRegionsFromApi(): void {
+    this.regionService.getRegionsFromApi()
+      .subscribe(regionsApi => this.regionsApi = regionsApi);
+  }
 }

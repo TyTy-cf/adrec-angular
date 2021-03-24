@@ -4,6 +4,7 @@ import {GuidRegion, Region} from '../models/region';
 import { Guid } from 'guid-typescript';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {RegionApi} from '../models/region-api';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,6 @@ export class RegionService implements RegionInterface {
   // ce Guid est juste là pour montrer comment ça fonctionne, il n'a aucun intérêt dans la logique ici
   guid: Guid;
   regions: GuidRegion[];
-  regionsTmp: Region[];
   // GuidRegion = { 'id': Guid, 'region': Region }
 
   // Url vers l'API
@@ -68,7 +68,7 @@ export class RegionService implements RegionInterface {
     return this.regions;
   }
 
-  getRegionObservable(): Observable<Region[]> {
-    return this.http.get<Region[]>(this.url);
+  getRegionsFromApi(): Observable<RegionApi[]> {
+    return this.http.get<RegionApi[]>(this.url);
   }
 }
