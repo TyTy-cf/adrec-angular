@@ -16,12 +16,15 @@ export class RegionIndexComponent implements OnInit {
 
   selectedGuid: Guid;
   regions: GuidRegion[];
+  regionsObs: Region[];
+
 
   constructor(
     public regionService: RegionService,
     public departmentService: DepartmentService
   ) {
     this.regions = regionService.getRegionsList();
+    this.regionsObs = new Array<Region>();
   }
 
   updateRegionList(hasToRefresh: boolean): void {
@@ -32,6 +35,8 @@ export class RegionIndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.regionService.getRegionObservable().subscribe(regions => this.regionsObs = regions);
+    alert(this.regionsObs.length);
   }
 
   onEditRegion(guid: Guid): void {

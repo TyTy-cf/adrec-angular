@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {RegionInterface} from './region-interface';
 import {GuidRegion, Region} from '../models/region';
 import { Guid } from 'guid-typescript';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,13 @@ export class RegionService implements RegionInterface {
   // ce Guid est juste là pour montrer comment ça fonctionne, il n'a aucun intérêt dans la logique ici
   guid: Guid;
   regions: GuidRegion[];
+  regionsTmp: Region[];
   // GuidRegion = { 'id': Guid, 'region': Region }
 
-  constructor() {
+  // Url vers l'API
+  url = 'https://geo.api.gouv.fr/regions';
+
+  constructor(private http: HttpClient) {
     this.guid = Guid.create();
     this.regions = new Array<GuidRegion>();
     const auvergne = new Region();
@@ -60,5 +66,9 @@ export class RegionService implements RegionInterface {
 
   getRegionsList(): GuidRegion[] {
     return this.regions;
+  }
+
+  getRegionObservable(): Observable<Region[]> {
+    return this.http.get<Region[]>(this.url);
   }
 }

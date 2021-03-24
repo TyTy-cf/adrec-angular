@@ -17,6 +17,7 @@ import { RegionFormComponent } from './region-form/region-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DepartmentFormComponent } from './department-form/department-form.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { DepartmentFormComponent } from './department-form/department-form.compo
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     {provide: AbstractDepartment, useClass: DepartmentService},

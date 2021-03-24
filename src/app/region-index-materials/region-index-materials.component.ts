@@ -11,12 +11,15 @@ import {RegionService} from '../../services/region.service';
 export class RegionIndexMaterialsComponent implements OnInit {
 
   dataSource: MatTableDataSource<Region>;
+  regions: Region[];
   displayedColumns: string[] = ['name', 'code'];
 
-  constructor(public regionService: RegionService) { }
+  constructor(public regionService: RegionService) {
+    this.regions = new Array<Region>();
+  }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.regionService.getRegionsList());
+    this.dataSource = new MatTableDataSource(this.regionService.regionsTmp);
   }
 
 }
