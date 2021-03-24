@@ -38,7 +38,6 @@ export class RegionIndexComponent implements OnInit {
     this.regionService.getRegionObservable()
       .subscribe(regions => this.regionsObs = regions)
     ;
-    alert(this.regionsObs.length);
   }
 
   onEditRegion(guid: Guid): void {
