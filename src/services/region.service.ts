@@ -14,16 +14,16 @@ export class RegionService implements RegionInterface {
 
   constructor(private http: HttpClient) {
     this.regions = new Array<Region>();
-    const auvergne = new Region();
-    // équivalent à $this->region.setCode('63')
-    auvergne.code = '84';
-    auvergne.name = 'Auvergne-Rhône-Alpes';
-    const idf = new Region();
-    // équivalent à $this->region.setCode('63')
-    idf.code = '11';
-    idf.name = 'Île-de-France';
-    this.regions.push(auvergne);
-    this.regions.push(idf);
+    // const auvergne = new Region();
+    // // équivalent à $this->region.setCode('63')
+    // auvergne.code = '84';
+    // auvergne.name = 'Auvergne-Rhône-Alpes';
+    // const idf = new Region();
+    // // équivalent à $this->region.setCode('63')
+    // idf.code = '11';
+    // idf.name = 'Île-de-France';
+    // this.regions.push(auvergne);
+    // this.regions.push(idf);
   }
 
   addRegion(region: Region): void {
@@ -31,7 +31,7 @@ export class RegionService implements RegionInterface {
   }
 
   deleteRegion(region: Region): Region[] {
-    this.regions = this.regions.filter(r => r.code !== region.code || r.name !== region.name);
+    this.regions = this.regions.filter(r => r.code !== region.code || r.nom !== region.nom);
     return this.regions;
   }
 

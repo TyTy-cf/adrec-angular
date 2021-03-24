@@ -13,10 +13,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="regionService.getRegionsList().length > 0; else emptyTr"></tr>
+      <tr *ngIf="regions.length > 0; else emptyTr"></tr>
       <tr *ngFor="let region of regions">
         <td>
-          <a routerLink="/region/show/{{ region.code }}" class="btn">{{ region.name }}</a>
+          <a routerLink="/region/show/{{ region.code }}" class="btn">{{ region.nom }}</a>
         </td>
         <td>{{ region.code }}</td>
         <td>{{ departmentService.getDepartmentsListByCodeRegion(region.code).length }}</td>

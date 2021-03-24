@@ -3,10 +3,10 @@ export class Region {
 
   //#region property name
   private _name: string;
-  public get name(): string {
+  public get nom(): string {
     return this._name;
   }
-  public set name(value: string) {
+  public set nom(value: string) {
     if (!value) {
       throw new Error('The name cannot be empty');
     }

@@ -3,7 +3,6 @@ import {RegionService} from '../../services/region.service';
 import {DepartmentService} from '../../services/department.service';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons';
 import {Region} from '../../models/region';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-region-index',
