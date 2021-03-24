@@ -27,7 +27,7 @@
       </td>
       <td>
         <select class="form-select" name="codeRegion" formControlName="codeRegion" required>
-          <option *ngFor="let region of regionService.getRegionsList()" value="{{ region.code }}">{{ region.name }}</option>
+          <option *ngFor="let guidRegion of regionService.getRegionsList()" value="{{ guidRegion.region.code }}">{{ guidRegion.region.name }}</option>
         </select>
       </td>
       <td>

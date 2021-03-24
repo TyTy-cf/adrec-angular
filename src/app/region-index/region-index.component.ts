@@ -27,6 +27,7 @@ export class RegionIndexComponent implements OnInit {
   updateRegionList(hasToRefresh: boolean): void {
     if (hasToRefresh) {
       this.regions = this.regionService.getRegionsList();
+      this.selectedGuid = null;
     }
   }
 

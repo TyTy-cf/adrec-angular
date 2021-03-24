@@ -7,4 +7,5 @@ export interface RegionInterface {
   addRegion(region: Region): void;
   deleteRegion(guid: Guid): GuidRegion[];
   editRegion(guid: Guid, region: Region): GuidRegion;
+  getRegionByCode(code: string): GuidRegion;
 }

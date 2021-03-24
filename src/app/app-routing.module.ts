@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'region/index', component: RegionIndexComponent },
   { path: 'region/show/:guid', component: RegionShowComponent },
   { path: 'department/index', component: DepartmentIndexComponent },
-  { path: 'department/show/:code', component: DepartmentShowComponent },
+  { path: 'department/show/:guid', component: DepartmentShowComponent },
   { path: 'region/index/materials', component: RegionIndexMaterialsComponent },
 ];
 

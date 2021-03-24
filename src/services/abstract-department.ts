@@ -1,10 +1,11 @@
-import {Department} from '../models/department';
+import {Department, GuidDepartment} from '../models/department';
+import {Guid} from 'guid-typescript';
 
 export abstract class AbstractDepartment {
-  abstract getDepartmentsList(): Department[];
-  abstract getDepartmentsListByCodeRegion(codeRegion: string): Department[];
-  abstract getDepartment(code: string): Department;
+  abstract getDepartmentsList(): GuidDepartment[];
+  abstract getDepartmentsListByCodeRegion(codeRegion: string): GuidDepartment[];
+  abstract getDepartment(guid: Guid): GuidDepartment;
   abstract addDepartment(department: Department): void;
-  abstract deleteDepartment(code: string): Department[];
-  abstract editDepartment(code: string): Department;
+  abstract deleteDepartment(guid: Guid): GuidDepartment[];
+  abstract editDepartment(guid: Guid, department: Department): GuidDepartment;
 }

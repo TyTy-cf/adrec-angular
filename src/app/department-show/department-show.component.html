@@ -1,18 +1,18 @@
 
-<div *ngIf="department; else emptyDepartment">
-  <h2>{{ department.name|uppercase }}</h2>
+<div *ngIf="guidDepartment; else emptyDepartment">
+  <h2>{{ guidDepartment.department.name|uppercase }}</h2>
   <table class="table table-striped w-25 table-vertical">
     <tbody>
       <tr>
         <th>Code</th>
         <td>
-          {{ department.code }}
+          {{ guidDepartment.department.code }}
         </td>
       </tr>
       <tr>
         <th>Region</th>
         <td>
-          <a routerLink="/region/show/{{ region.code }}" class="btn">{{ region.name }}</a>
+          <a routerLink="/region/show/{{ guidRegion.id }}" class="btn">{{ guidRegion.region.name }}</a>
         </td>
       </tr>
     </tbody>

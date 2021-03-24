@@ -1,7 +1,14 @@
+import {Guid} from 'guid-typescript';
+
+export interface GuidDepartment {
+  id: Guid;
+  department: Department;
+}
 
 export class Department {
 
   //#region property name
+  // tslint:disable-next-line:variable-name
   private _name: string;
   public get name(): string {
     return this._name;
@@ -25,6 +32,7 @@ export class Department {
   //#endregion
 
   //#region property codeRegion
+  // tslint:disable-next-line:variable-name
   private _codeRegion: string;
   public get codeRegion(): string {
     return this._codeRegion;

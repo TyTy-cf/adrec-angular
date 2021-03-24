@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Department} from '../../models/department';
+import {GuidDepartment} from '../../models/department';
 import {GuidRegion} from '../../models/region';
 import {DepartmentService} from '../../services/department.service';
 import {RegionService} from '../../services/region.service';
@@ -13,7 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 export class RegionShowComponent implements OnInit {
 
   guidRegion: GuidRegion;
-  departments: Department[];
+  guidDepartments: GuidDepartment[];
 
   constructor(
     public departmentService: DepartmentService,
@@ -25,7 +25,7 @@ export class RegionShowComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       this.guidRegion = this.regionService.getRegion(params.guid);
       if (this.guidRegion) {
-        this.departments = this.departmentService.getDepartmentsListByCodeRegion(this.guidRegion.region.code);
+        this.guidDepartments = this.departmentService.getDepartmentsListByCodeRegion(this.guidRegion.region.code);
       }
     });
   }

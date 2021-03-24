@@ -40,7 +40,7 @@ export class RegionFormComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     // On doit toujours initialiser notre Region, afin d'avoir un objet sur lequel va se baser notre FormGroup
     this.region = new Region();
-    // this.guid = Guid.create();
+    this.guid = Guid.create();
     this.initializeForm();
   }
 
@@ -75,13 +75,10 @@ export class RegionFormComponent implements OnInit, OnChanges {
     this.region = this.regionForm.value;
     if (regionEdit !== undefined) {
       this.regionService.editRegion(this.guid, this.region);
-      this.emitRefreshList(true);
+      this.refreshList.emit(true);
+      this.guid = Guid.create();
     } else {
       this.regionService.addRegion(this.region);
     }
-  }
-
-  emitRefreshList(hasToRefresh: boolean): void {
-    this.refreshList.emit(hasToRefresh);
   }
 }

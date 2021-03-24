@@ -7,25 +7,27 @@
       <tr>
         <th>Nom</th>
         <th>Code</th>
+        <th>Region</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="departmentService.getDepartmentsList().length > 0; else emptyTr"></tr>
-      <tr *ngFor="let department of departmentService.getDepartmentsList()">
+      <tr *ngFor="let guidDepartment of guidDepartments">
         <td>
-          <a routerLink="/department/show/{{ department.code }}" class="btn">{{ department.name }}</a>
+          <a routerLink="/department/show/{{ guidDepartment.id }}" class="btn">{{ guidDepartment.department.name }}</a>
         </td>
-        <td>{{ department.code }}</td>
+        <td>{{ guidDepartment.department.code }}</td>
+        <td>{{ regionService.getRegionByCode(guidDepartment.department.codeRegion).region.name }}</td>
         <td>
-          <button class="btn">
+          <button class="btn" (click)="onEditDepartment(guidDepartment.id)">
             <fa-icon class="btn" [icon]="faPencilAlt"></fa-icon>
           </button>
         </td>
       </tr>
     </tbody>
   </table>
-  <app-department-form></app-department-form>
+  <app-department-form [guid]="selectedGuid" (refreshList)="updateDepartmentList($event)"></app-department-form>
 </div>
 
 <ng-template #emptyTr>
