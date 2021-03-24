@@ -1,50 +1,56 @@
 import {Injectable} from '@angular/core';
 import {RegionInterface} from './region-interface';
-import {Region} from '../models/region';
+import {GuidRegion, Region} from '../models/region';
+import { Guid } from 'guid-typescript';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegionService implements RegionInterface {
 
-  regions: Region[];
+  // ce Guid est juste là pour montrer comment ça fonctionne, il n'a aucun intérêt dans la logique ici
+  guid: Guid;
+  regions: GuidRegion[];
+  // GuidRegion = { 'id': Guid, 'region': Region }
 
   constructor() {
-    this.regions = new Array<Region>();
+    this.guid = Guid.create();
+    this.regions = new Array<GuidRegion>();
     const auvergne = new Region();
-    // équivalent à $this->region.setCode('63')
     auvergne.code = '84';
     auvergne.name = 'Auvergne-Rhône-Alpes';
     const idf = new Region();
-    // équivalent à $this->region.setCode('63')
     idf.code = '11';
     idf.name = 'Île-de-France';
-    this.regions.push(auvergne);
-    this.regions.push(idf);
+    this.regions.push({ id: Guid.create(), region: auvergne });
+    this.regions.push({ id: Guid.create(), region: idf });
   }
 
   addRegion(region: Region): void {
-    this.regions.push(region);
+    this.regions.push({ id: Guid.create(), region });
   }
 
-  deleteRegion(region: Region): Region[] {
-    this.regions = this.regions.filter(r => r.code !== region.code || r.name !== region.name);
-    return this.regions;
+  deleteRegion(guid: Guid): GuidRegion[] {
+      this.regions = this.regions.filter(gr => !gr.id.equals(guid));
+      return this.regions;
   }
 
-  editRegion(code: string): Region {
-    return undefined;
+  editRegion(guid: Guid, region: Region): GuidRegion {
+    this.regions = this.deleteRegion(guid);
+    const newGuidRegion = { id: guid, region };
+    this.regions.push(newGuidRegion);
+    return newGuidRegion;
   }
 
-  getRegion(code: string): Region {
-    const regions =  this.regions.filter(r => r.code === code);
+  getRegion(guid: Guid): GuidRegion {
+    const regions = this.regions.filter(gr => gr.id.equals(guid));
     if (!regions) {
       throw new Error('The code region doesn\'t exist');
     }
     return regions[0];
   }
 
-  getRegionsList(): Region[] {
+  getRegionsList(): GuidRegion[] {
     return this.regions;
   }
 }

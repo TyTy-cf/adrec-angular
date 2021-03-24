@@ -1,9 +1,10 @@
-import {Region} from '../models/region';
+import {GuidRegion, Region} from '../models/region';
+import {Guid} from 'guid-typescript';
 
 export interface RegionInterface {
-  getRegionsList(): Region[];
-  getRegion(code: string): Region;
+  getRegionsList(): GuidRegion[];
+  getRegion(guid: Guid): GuidRegion;
   addRegion(region: Region): void;
-  deleteRegion(region: Region): Region[];
-  editRegion(code: string): Region;
+  deleteRegion(guid: Guid): GuidRegion[];
+  editRegion(guid: Guid, region: Region): GuidRegion;
 }

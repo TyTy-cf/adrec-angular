@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {RegionService} from '../../services/region.service';
 import {DepartmentService} from '../../services/department.service';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons';
-import {Region} from '../../models/region';
+import {GuidRegion, Region} from '../../models/region';
+import {Guid} from 'guid-typescript';
 
 @Component({
   selector: 'app-region-index',
@@ -13,8 +14,8 @@ export class RegionIndexComponent implements OnInit {
 
   public faPencilAlt = faPencilAlt;
 
-  selectedRegion: Region;
-  regions: Region[];
+  selectedGuid: Guid;
+  regions: GuidRegion[];
 
   constructor(
     public regionService: RegionService,
@@ -32,8 +33,8 @@ export class RegionIndexComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onEditRegion(region: Region): void {
-    this.selectedRegion = region;
+  onEditRegion(guid: Guid): void {
+    this.selectedGuid = guid;
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RegionService} from '../../services/region.service';
 
 @Component({
   selector: 'app-counter',
@@ -10,7 +11,7 @@ export class CounterComponent implements OnInit {
   compteur: number;
   compteurCss: string;
 
-  constructor() {
+  constructor(public regionService: RegionService) {
     this.compteur = 0;
     this.compteurCss = 'neutral';
   }

@@ -1,6 +1,6 @@
 
-<div *ngIf="region; else emptyRegion">
-  <h2>{{ region.name|uppercase }} ({{ region.code }})</h2>
+<div *ngIf="guidRegion; else emptyRegion">
+  <h2>{{ guidRegion.region.name|uppercase }} ({{ guidRegion.region.code }})</h2>
 
   <div *ngIf="departments.length > 0; else emptyDepartment" class="col-sm-6">
     <table class="table table-striped table-vertical">

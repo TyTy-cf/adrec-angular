@@ -2,7 +2,8 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import {RegionService} from '../../services/region.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Region} from '../../models/region';
+import {GuidRegion, Region} from '../../models/region';
+import {Guid} from 'guid-typescript';
 
 @Component({
   selector: 'app-region-form',
@@ -12,11 +13,13 @@ import {Region} from '../../models/region';
 export class RegionFormComponent implements OnInit, OnChanges {
 
   @Input()
-  region: Region;
+  guid: Guid;
 
   @Output()
   refreshList: EventEmitter<boolean>;
 
+  // On doit rajouter la region liée à notre formulaire !
+  region: Region;
   regionForm: FormGroup;
   public faPlusCircle = faPlusCircle;
 
@@ -25,16 +28,19 @@ export class RegionFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    const oldRegion = changes.region.previousValue;
-    const newRegion = changes.region.currentValue;
-    if (oldRegion !== newRegion) {
-      this.region = newRegion;
+    const oldGuid = changes.guid.previousValue;
+    const newGuid = changes.guid.currentValue;
+    if (oldGuid !== newGuid) {
+      this.guid = newGuid;
+      this.region = this.regionService.getRegion(this.guid).region;
       this.initializeForm();
     }
   }
 
   ngOnInit(): void {
+    // On doit toujours initialiser notre Region, afin d'avoir un objet sur lequel va se baser notre FormGroup
     this.region = new Region();
+    // this.guid = Guid.create();
     this.initializeForm();
   }
 
@@ -65,16 +71,13 @@ export class RegionFormComponent implements OnInit, OnChanges {
   }
 
   addRegion(): void {
-    let regionAddOrEdit = this.regionService.getRegion(this.regionForm.value.code);
-    let onRefresh = false;
-    if (regionAddOrEdit !== undefined) {
-      this.regionService.deleteRegion(regionAddOrEdit);
-      onRefresh = true;
-    }
-    regionAddOrEdit = this.regionForm.value;
-    this.regionService.addRegion(regionAddOrEdit);
-    if (onRefresh) {
+    const regionEdit = this.regionService.getRegion(this.guid);
+    this.region = this.regionForm.value;
+    if (regionEdit !== undefined) {
+      this.regionService.editRegion(this.guid, this.region);
       this.emitRefreshList(true);
+    } else {
+      this.regionService.addRegion(this.region);
     }
   }
 

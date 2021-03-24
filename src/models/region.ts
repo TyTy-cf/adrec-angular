@@ -1,3 +1,9 @@
+import {Guid} from 'guid-typescript';
+
+export interface GuidRegion {
+  id: Guid;
+  region: Region;
+}
 
 export class Region {
 
