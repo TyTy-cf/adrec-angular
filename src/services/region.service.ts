@@ -3,7 +3,6 @@ import {RegionInterface} from './region-interface';
 import {Region} from '../models/region';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
