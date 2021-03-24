@@ -33,11 +33,11 @@ export class RegionService implements RegionInterface {
   }
 
   getRegionByCode(code: string): GuidRegion {
-      const regions = this.regions.filter(gr => gr.region.code === code);
-      if (!regions) {
-        throw new Error('The code region doesn\'t exist');
-      }
-      return regions[0];
+    const regions = this.regions.filter(gr => gr.region.code === code);
+    if (!regions) {
+      throw new Error('The code region doesn\'t exist');
+    }
+    return regions[0];
   }
 
   addRegion(region: Region): void {
@@ -68,7 +68,7 @@ export class RegionService implements RegionInterface {
     return this.regions;
   }
 
-  getRegionsFromApi(): Observable<RegionApi[]> {
-    return this.http.get<RegionApi[]>(this.url);
+  getRegionsFromApi(): Observable<Region[]> {
+    return this.http.get<Region[]>(this.url);
   }
 }
