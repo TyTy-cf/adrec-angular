@@ -1,6 +1,5 @@
 import {GuidRegion, Region} from '../models/region';
 import {Guid} from 'guid-typescript';
-import {Observable} from 'rxjs';
 
 export interface RegionInterface {
   getRegionsList(): GuidRegion[];
@@ -9,4 +8,5 @@ export interface RegionInterface {
   deleteRegion(guid: Guid): GuidRegion[];
   editRegion(guid: Guid, region: Region): GuidRegion;
   getRegionByCode(code: string): GuidRegion;
+  getRegionsListAsync(): Promise<GuidRegion[]>;
 }

@@ -4,6 +4,7 @@ import {DepartmentService} from '../../services/department.service';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons';
 import {GuidRegion} from '../../models/region';
 import {Guid} from 'guid-typescript';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-region-index',
@@ -31,8 +32,12 @@ export class RegionIndexComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.regions = this.regionService.getRegionsList();
+  async ngOnInit(): Promise<void> {
+    await this.regionService.getRegionsListAsync().then((gr) => {
+      this.regions = gr;
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   onEditRegion(guid: Guid): void {

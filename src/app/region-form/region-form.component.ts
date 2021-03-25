@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import {RegionService} from '../../services/region.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {GuidRegion, Region} from '../../models/region';
+import {Region} from '../../models/region';
 import {Guid} from 'guid-typescript';
 
 @Component({

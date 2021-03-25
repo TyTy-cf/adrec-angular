@@ -61,4 +61,13 @@ export class RegionService implements RegionInterface {
   getRegionsList(): GuidRegion[] {
     return this.regions;
   }
+
+  getRegionsListAsync(): Promise<GuidRegion[]> {
+    // return Promise.resolve(this.regions);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.regions);
+      }, 5000);
+    });
+  }
 }

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {RegionApi} from '../../models/region-api';
 import {GeoApiService} from '../../services/geo-api.service';
 import {catchError, tap} from 'rxjs/operators';
-import {DepartmentApi} from '../../models/department-api';
-import {sprintf} from 'sprintf-js';
 
 @Component({
   selector: 'app-region-api-index',

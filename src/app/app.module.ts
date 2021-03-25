@@ -22,6 +22,7 @@ import { RegionApiIndexComponent } from './region-api-index/region-api-index.com
 import { DepartmentApiIndexComponent } from './department-api-index/department-api-index.component';
 import { RegionApiShowComponent } from './region-api-show/region-api-show.component';
 import { DepartmentApiShowComponent } from './department-api-show/department-api-show.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { DepartmentApiShowComponent } from './department-api-show/department-api
     ReactiveFormsModule,
     // HttpClientModule est ce qui vous permet de récupérer du contenu depuis une API (ou autre)
     HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {provide: AbstractDepartment, useClass: DepartmentService},

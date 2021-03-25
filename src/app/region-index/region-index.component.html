@@ -1,8 +1,7 @@
-
 <!-- stylisé avec bootstrap -->
 <h2>Index des régions</h2>
 
-<div class="col-sm-6">
+<div class="col-sm-6" *ngIf="regions; else emptyTr">
   <table class="table table-striped table-vertical">
     <thead>
       <tr>
@@ -13,7 +12,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="regionService.getRegionsList().length > 0; else emptyTr"></tr>
       <tr *ngFor="let guidRegion of regions">
         <td>
           <a routerLink="/region/show/{{ guidRegion.id }}" class="btn">{{ guidRegion.region.name }}</a>
@@ -32,5 +30,8 @@
 </div>
 
 <ng-template #emptyTr>
-  <td colspan="3">Tableau vide</td>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <mat-spinner class="mb-3"></mat-spinner>
+      Récupération des régions...
+    </div>
 </ng-template>
