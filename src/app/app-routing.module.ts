@@ -8,6 +8,7 @@ import {DepartmentShowComponent} from './department-show/department-show.compone
 import {RegionShowComponent} from './region-show/region-show.component';
 import {RegionApiIndexComponent} from './region-api-index/region-api-index.component';
 import {DepartmentApiIndexComponent} from './department-api-index/department-api-index.component';
+import {RegionApiShowComponent} from './region-api-show/region-api-show.component';
 
 const routes: Routes = [
   { path: 'counter', component: CounterComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'department/show/:guid', component: DepartmentShowComponent },
   { path: 'region/index/materials', component: RegionIndexMaterialsComponent },
   { path: 'api/region/index', component: RegionApiIndexComponent },
+  { path: 'api/region/show/:code', component: RegionApiShowComponent },
   { path: 'api/department/index', component: DepartmentApiIndexComponent },
 ];
 

@@ -1,0 +1,33 @@
+
+<div *ngIf="regionApi; else emptyRegion">
+  <h2>{{ regionApi.nom|uppercase }} ({{ regionApi.code }})</h2>
+
+  <div *ngIf="departmentsApi.length > 0; else emptyDepartment" class="col-sm-6">
+    <table class="table table-striped table-vertical">
+      <tbody>
+      <tr>
+        <th>Nom</th>
+        <th>Code</th>
+      </tr>
+      <tr *ngFor="let dept of departmentsApi">
+        <td>
+          {{ dept.nom }}
+        </td>
+        <td>
+          {{ dept.code }}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<a routerLink="api/region/index" class="btn btn-warning">Retour aux régions</a>
+
+<ng-template #emptyDepartment>
+  <p>Aucun département lié à cette région</p>
+</ng-template>
+
+<ng-template #emptyRegion>
+  <p>Aucune région sélectionnée</p>
+</ng-template>

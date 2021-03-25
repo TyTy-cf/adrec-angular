@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {RegionApi} from '../../models/region-api';
 import {GeoApiService} from '../../services/geo-api.service';
 import {catchError, tap} from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+import {DepartmentApi} from '../../models/department-api';
+import {sprintf} from 'sprintf-js';
 
 @Component({
   selector: 'app-region-api-index',
@@ -18,12 +19,12 @@ export class RegionApiIndexComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getRegionsFromApi();
+    this.getRegions();
   }
 
-  private getRegionsFromApi(): void {
+  private getRegions(): void {
     this.regionsApi = new Array<RegionApi>();
-    this.geoApiService.getRegionsFromApi().pipe(
+    this.geoApiService.getRegions().pipe(
       tap(_ => console.log('Error while fetching regions')),
       catchError(this.geoApiService.handleError<RegionApi>('getRegionsFromApi'))
     )

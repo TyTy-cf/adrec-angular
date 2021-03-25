@@ -20,6 +20,7 @@ import { DepartmentFormComponent } from './department-form/department-form.compo
 import {HttpClientModule} from '@angular/common/http';
 import { RegionApiIndexComponent } from './region-api-index/region-api-index.component';
 import { DepartmentApiIndexComponent } from './department-api-index/department-api-index.component';
+import { RegionApiShowComponent } from './region-api-show/region-api-show.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DepartmentApiIndexComponent } from './department-api-index/department-a
     DepartmentFormComponent,
     RegionApiIndexComponent,
     DepartmentApiIndexComponent,
+    RegionApiShowComponent,
   ],
   imports: [
     BrowserModule,

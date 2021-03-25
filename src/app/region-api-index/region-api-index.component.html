@@ -1,25 +1,22 @@
 
 <h2>Index des régions from API</h2>
+
 <div class="col-sm-6">
   <table class="table table-striped table-vertical">
     <thead>
     <tr>
       <th>Nom</th>
       <th>Code</th>
-      <th>Nb départements</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngIf="regionsApi.length > 0; else emptyTr"></tr>
     <tr *ngFor="let regionApi of regionsApi">
       <td>
-        {{ regionApi.nom }}
+        <a routerLink="api/region/show/{{ regionApi.code }}" class="btn">{{ regionApi.nom }}</a>
       </td>
       <td>
         {{ regionApi.code }}
-      </td>
-      <td>
-          <!-- Nombre de départements une fois les départements récupérés /-->
       </td>
     </tr>
     </tbody>
@@ -27,5 +24,5 @@
 </div>
 
 <ng-template #emptyTr>
-  <td colspan="3">Pas de régions</td>
+  <td colspan="2">Pas de régions</td>
 </ng-template>

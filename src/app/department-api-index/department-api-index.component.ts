@@ -23,7 +23,7 @@ export class DepartmentApiIndexComponent implements OnInit {
 
   private getDepartmentsFromApi(): void {
     this.departmentApis = new Array<DepartmentApi>();
-    this.geoApiService.getDepartmentsFromApi().pipe(
+    this.geoApiService.getDepartments().pipe(
       tap(_ => console.log('Error while fetching departments')),
       catchError(this.geoApiService.handleError<DepartmentApi>('getDepartmentsFromApi'))
     )
