@@ -13,7 +13,7 @@
     <tr *ngIf="regionsApi.length > 0; else emptyTr"></tr>
     <tr *ngFor="let regionApi of regionsApi">
       <td>
-        <a routerLink="api/region/show/{{ regionApi.code }}" class="btn">{{ regionApi.nom }}</a>
+        <a routerLink="/api/region/show/{{ regionApi.code }}" class="btn">{{ regionApi.nom }}</a>
       </td>
       <td>
         {{ regionApi.code }}

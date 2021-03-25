@@ -24,9 +24,7 @@ export class RegionApiShowComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.getRegionByCode(params.code);
-      if (this.regionApi) {
-        this.getDepartmentsByRegion(params.code);
-      }
+      this.getDepartmentsByRegion(params.code);
     });
   }
 
