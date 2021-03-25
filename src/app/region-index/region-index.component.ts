@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RegionService} from '../../services/region.service';
 import {DepartmentService} from '../../services/department.service';
 import {faPencilAlt} from '@fortawesome/free-solid-svg-icons';
-import {GuidRegion, Region} from '../../models/region';
+import {GuidRegion} from '../../models/region';
 import {Guid} from 'guid-typescript';
 
 @Component({
@@ -16,13 +16,13 @@ export class RegionIndexComponent implements OnInit {
 
   selectedGuid: Guid;
   regions: GuidRegion[];
-  regionsApi: Region[];
 
 
   constructor(
     public regionService: RegionService,
     public departmentService: DepartmentService
-  ) { }
+  ) {
+  }
 
   updateRegionList(hasToRefresh: boolean): void {
     if (hasToRefresh) {
@@ -32,16 +32,10 @@ export class RegionIndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRegionsFromApi();
+    this.regions = this.regionService.getRegionsList();
   }
 
   onEditRegion(guid: Guid): void {
     this.selectedGuid = guid;
-  }
-
-  private getRegionsFromApi(): void {
-    this.regionService.getRegionsFromApi()
-      .subscribe(regions => this.regionsApi = regions)
-    ;
   }
 }

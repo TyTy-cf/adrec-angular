@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
     this.routesMenu.push({path: 'region/index', title: 'Region Index'});
     // this.routesMenu.push({path: 'region/show/:code', title: 'Region Show'});
     this.routesMenu.push({path: 'department/index', title: 'Department Index'});
+    this.routesMenu.push({path: 'api/region/index', title: 'API Régions'});
     // this.routesMenu.push({path: 'department/show/:code', title: 'Department Show'});
   }
 }

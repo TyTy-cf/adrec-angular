@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DepartmentFormComponent } from './department-form/department-form.component';
 import {HttpClientModule} from '@angular/common/http';
+import { RegionApiIndexComponent } from './region-api-index/region-api-index.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {HttpClientModule} from '@angular/common/http';
     RegionShowComponent,
     RegionFormComponent,
     DepartmentFormComponent,
+    RegionApiIndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import {HttpClientModule} from '@angular/common/http';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    // HttpClientModule est ce qui vous permet de récupérer du contenu depuis une API (ou autre)
     HttpClientModule,
   ],
   providers: [
