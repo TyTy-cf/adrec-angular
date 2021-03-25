@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DepartmentApi} from '../../models/department-api';
 import {GeoApiService} from '../../services/geo-api.service';
 import {catchError, tap} from 'rxjs/operators';
@@ -10,7 +10,7 @@ import {RegionApi} from '../../models/region-api';
   templateUrl: './department-api-show.component.html',
   styleUrls: ['./department-api-show.component.scss']
 })
-export class DepartmentApiShowComponent implements OnInit, OnChanges {
+export class DepartmentApiShowComponent implements OnInit {
 
   departmentApi: DepartmentApi;
   regionApi: RegionApi;
@@ -26,15 +26,6 @@ export class DepartmentApiShowComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const oldDepartmentApi = changes.regionApi.previousValue;
-    const newDepartmentApi = changes.regionApi.currentValue;
-    if (oldDepartmentApi !== newDepartmentApi) {
-      this.departmentApi = newDepartmentApi;
-      this.getRegionByCode(this.departmentApi.codeRegion);
-    }
-  }
-
   private getRegionByCode(code: string): void {
     this.geoApiService.getRegionByCode(code).pipe(
       tap(_ => console.log('Error while fetching region by code')),
@@ -48,8 +39,10 @@ export class DepartmentApiShowComponent implements OnInit, OnChanges {
     this.geoApiService.getDepartmentByCode(code).pipe(
       tap(_ => console.log('Error while fetching department by code')),
       catchError(this.geoApiService.handleError<DepartmentApi>('getDepartmentByCode'))
-    ).subscribe((department: DepartmentApi) =>
-      this.departmentApi = department
+    ).subscribe((department: DepartmentApi) => {
+        this.departmentApi = department;
+        this.getRegionByCode(department.codeRegion);
+      }
     );
   }
 

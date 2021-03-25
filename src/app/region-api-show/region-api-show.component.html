@@ -11,7 +11,7 @@
       </tr>
       <tr *ngFor="let dept of departmentsApi">
         <td>
-          {{ dept.nom }}
+          <a routerLink="/api/department/show/{{ dept.code }}" class="btn">{{ dept.nom }}</a>
         </td>
         <td>
           {{ dept.code }}
