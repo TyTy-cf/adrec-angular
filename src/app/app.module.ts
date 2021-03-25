@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { RegionApiIndexComponent } from './region-api-index/region-api-index.component';
 import { DepartmentApiIndexComponent } from './department-api-index/department-api-index.component';
 import { RegionApiShowComponent } from './region-api-show/region-api-show.component';
+import { DepartmentApiShowComponent } from './department-api-show/department-api-show.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { RegionApiShowComponent } from './region-api-show/region-api-show.compon
     RegionApiIndexComponent,
     DepartmentApiIndexComponent,
     RegionApiShowComponent,
+    DepartmentApiShowComponent,
   ],
   imports: [
     BrowserModule,

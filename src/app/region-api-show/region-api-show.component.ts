@@ -32,11 +32,9 @@ export class RegionApiShowComponent implements OnInit {
     this.geoApiService.getRegionByCode(code).pipe(
       tap(_ => console.log('Error while fetching region by code')),
       catchError(this.geoApiService.handleError<RegionApi>('getRegionByCode'))
-    )
-      .subscribe((region: RegionApi) =>
-        this.regionApi = region
-      )
-    ;
+    ).subscribe((region: RegionApi) =>
+      this.regionApi = region
+    );
   }
 
   public getDepartmentsByRegion(code: string): void {
@@ -45,8 +43,7 @@ export class RegionApiShowComponent implements OnInit {
       catchError(this.geoApiService.handleError<DepartmentApi>('getDepartmentsByRegion'))
     ).subscribe((datasApi: DepartmentApi[]) =>
       this.departmentsApi = datasApi
-    )
-    ;
+    );
   }
 
 }

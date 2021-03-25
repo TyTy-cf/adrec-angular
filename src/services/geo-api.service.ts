@@ -14,6 +14,7 @@ export class GeoApiService {
   private urlRegion = 'https://geo.api.gouv.fr/regions';
   private urlRegionByCode = 'https://geo.api.gouv.fr/regions/%s';
   private urlDepartment = 'https://geo.api.gouv.fr/departements';
+  private urlDepartmentByCode = 'https://geo.api.gouv.fr/departements/%s';
   private urlDepartmentsByRegion = 'https://geo.api.gouv.fr/regions/%s/departements';
 
   constructor(private http: HttpClient) { }
@@ -32,6 +33,10 @@ export class GeoApiService {
 
   getRegionByCode(code: string): Observable<RegionApi> {
     return this.http.get<RegionApi>(sprintf(this.urlRegionByCode, code));
+  }
+
+  getDepartmentByCode(code: string): Observable<DepartmentApi> {
+    return this.http.get<DepartmentApi>(sprintf(this.urlDepartmentByCode, code));
   }
 
   /**

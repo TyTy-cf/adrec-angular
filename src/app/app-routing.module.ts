@@ -9,6 +9,7 @@ import {RegionShowComponent} from './region-show/region-show.component';
 import {RegionApiIndexComponent} from './region-api-index/region-api-index.component';
 import {DepartmentApiIndexComponent} from './department-api-index/department-api-index.component';
 import {RegionApiShowComponent} from './region-api-show/region-api-show.component';
+import {DepartmentApiShowComponent} from './department-api-show/department-api-show.component';
 
 const routes: Routes = [
   { path: 'counter', component: CounterComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'api/region/index', component: RegionApiIndexComponent },
   { path: 'api/region/show/:code', component: RegionApiShowComponent },
   { path: 'api/department/index', component: DepartmentApiIndexComponent },
+  { path: 'api/department/show/:code', component: DepartmentApiShowComponent },
 ];
 
 @NgModule({

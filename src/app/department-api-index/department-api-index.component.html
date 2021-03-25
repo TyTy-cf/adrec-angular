@@ -13,7 +13,7 @@
     <tr *ngIf="departmentApis.length > 0; else emptyTr"></tr>
     <tr *ngFor="let departmentApi of departmentApis">
       <td>
-        {{ departmentApi.nom }}
+        <a routerLink="/api/department/show/{{ departmentApi.code }}" class="btn">{{ departmentApi.nom }}</a>
       </td>
       <td>
         {{ departmentApi.code }}

@@ -1,0 +1,28 @@
+
+<div *ngIf="departmentApi; else emptyDepartment" class="col-3 col-sm-6">
+  <h2>{{ departmentApi.nom|uppercase }}</h2>
+
+  <table class="table table-striped table-vertical">
+    <tbody>
+    <tr>
+      <th>Code</th>
+      <td>
+        {{ departmentApi.code }}
+      </td>
+    </tr>
+    <tr>
+      <th>Region</th>
+      <td>
+        <a routerLink="api/region/show/{{ regionApi.code }}" class="btn">{{ regionApi.nom }} ({{ regionApi.code }})</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a routerLink="/api/department/index" class="btn btn-warning">Retour aux départements</a>
+</div>
+
+<ng-template #emptyDepartment>
+  <p>Aucun département slectionné</p>
+</ng-template>
+
+
