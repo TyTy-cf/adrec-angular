@@ -25,26 +25,11 @@ export class RegionApiIndexComponent implements OnInit {
     this.regionsApi = new Array<RegionApi>();
     this.geoApiService.getRegionsFromApi().pipe(
       tap(_ => console.log('Error while fetching regions')),
-      catchError(this.handleError<RegionApi>('getRegionsFromApi'))
+      catchError(this.geoApiService.handleError<RegionApi>('getRegionsFromApi'))
     )
       .subscribe((regions: RegionApi[]) =>
         this.regionsApi = regions
       )
     ;
-  }
-
-  /**
-   * Display error
-   * @privates
-   */
-  private handleError<T>(operation = 'operation', result?: T): any {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 }

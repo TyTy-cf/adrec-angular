@@ -7,6 +7,7 @@ import {RegionIndexMaterialsComponent} from './region-index-materials/region-ind
 import {DepartmentShowComponent} from './department-show/department-show.component';
 import {RegionShowComponent} from './region-show/region-show.component';
 import {RegionApiIndexComponent} from './region-api-index/region-api-index.component';
+import {DepartmentApiIndexComponent} from './department-api-index/department-api-index.component';
 
 const routes: Routes = [
   { path: 'counter', component: CounterComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'department/show/:guid', component: DepartmentShowComponent },
   { path: 'region/index/materials', component: RegionIndexMaterialsComponent },
   { path: 'api/region/index', component: RegionApiIndexComponent },
+  { path: 'api/department/index', component: DepartmentApiIndexComponent },
 ];
 
 @NgModule({

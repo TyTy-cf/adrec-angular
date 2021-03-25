@@ -1,0 +1,31 @@
+
+<h2>Index des départements from API</h2>
+<div class="col-sm-6">
+  <table class="table table-striped table-vertical">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Code</th>
+      <th>Code Region</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngIf="departmentApis.length > 0; else emptyTr"></tr>
+    <tr *ngFor="let departmentApi of departmentApis">
+      <td>
+        {{ departmentApi.nom }}
+      </td>
+      <td>
+        {{ departmentApi.code }}
+      </td>
+      <td>
+        {{ departmentApi.codeRegion }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #emptyTr>
+  <td colspan="3">Pas de départements</td>
+</ng-template>

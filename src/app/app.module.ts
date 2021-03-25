@@ -19,6 +19,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DepartmentFormComponent } from './department-form/department-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RegionApiIndexComponent } from './region-api-index/region-api-index.component';
+import { DepartmentApiIndexComponent } from './department-api-index/department-api-index.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RegionApiIndexComponent } from './region-api-index/region-api-index.com
     RegionFormComponent,
     DepartmentFormComponent,
     RegionApiIndexComponent,
+    DepartmentApiIndexComponent,
   ],
   imports: [
     BrowserModule,
