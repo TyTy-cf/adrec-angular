@@ -4,6 +4,7 @@ import {RegionApi} from '../models/region-api';
 import {Observable, of} from 'rxjs';
 import {DepartmentApi} from '../models/department-api';
 import {sprintf} from 'sprintf-js';
+import {JsonArray, JsonObject} from '@angular/compiler-cli/ngcc/src/packages/entry_point';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class GeoApiService {
   private urlDepartment = 'https://geo.api.gouv.fr/departements';
   private urlDepartmentByCode = 'https://geo.api.gouv.fr/departements/%s';
   private urlDepartmentsByRegion = 'https://geo.api.gouv.fr/regions/%s/departements';
+  private urlGames = 'https://127.0.0.1:8000/api/games';
 
   constructor(private http: HttpClient) { }
 
@@ -37,6 +39,23 @@ export class GeoApiService {
 
   getDepartmentByCode(code: string): Observable<DepartmentApi> {
     return this.http.get<DepartmentApi>(sprintf(this.urlDepartmentByCode, code));
+  }
+
+  /**
+   * N'a rien à faire ici, mais c'était pour un exemple de récupération de Json depuis une API avec une Promise
+   */
+  async getGames(): Promise<void> {
+    const response = await fetch(this.urlGames);
+    const data = await response.json();
+    const games = data['hydra:member'];
+    games.forEach(game => {
+      console.log(game.name);
+      console.log(game.price);
+    });
+    // for (const game of games) {
+    //   console.log(game.name);
+    //   console.log(game.price);
+    // }
   }
 
   /**

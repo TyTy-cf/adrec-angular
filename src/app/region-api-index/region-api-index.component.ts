@@ -18,6 +18,7 @@ export class RegionApiIndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRegions();
+    this.geoApiService.getGames();
   }
 
   private getRegions(): void {
